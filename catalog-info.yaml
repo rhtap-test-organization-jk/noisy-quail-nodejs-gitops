@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: noisy-quail-nodejs-gitops
+  description: This is GitOps manifest for noisy-quail-nodejs   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-name: noisy-quail-nodejs
+    janus-idp.io/tekton: noisy-quail-nodejs 
+    backstage.io/kubernetes-id: noisy-quail-nodejs 
+    backstage.io/techdocs-ref: dir:. 
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:noisy-quail-nodejs
